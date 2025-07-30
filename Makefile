@@ -27,8 +27,8 @@ anvil :; anvil -m 'test test test test test test test test test test test junk' 
 
 zk-anvil :; npx zksync-cli dev start
 
-
-build:; forge build
+deploy:
+	@forge script script/DeployFundMe.s.sol:DeployFundMe $(NETWORK_ARGS)
 
 deploy-sepolia:
 	forge script script/DeployFundMe.s.sol:DeployFundMe --rpc-url $(SEPOLIA_RPC) --private-key $(PRIVATE_KEY) --broadcast --verify --etherscan-api-key $(ETHERSCAN_API_KEY) -vvvv
